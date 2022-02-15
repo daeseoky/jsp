@@ -5,6 +5,7 @@ public class CustomerBean {
 	private String name;
 	private String address;
 	private String phone;
+	
 	public int getCustid() {
 		return custid;
 	}

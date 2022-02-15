@@ -9,8 +9,8 @@
 	
 	// 데이터베이스 작업(Statement)
 	try{
-		String host = "jdbc:mysql://chhak.or.kr:3306/test";
-		String user = "test";
+		String host = "jdbc:mysql://chhak.or.kr:3306/cesiya3";
+		String user = "cesiya3";
 		String pass = "1234";
 		
 		Class.forName("com.mysql.jdbc.Driver");
@@ -18,6 +18,7 @@
 		Statement stmt = conn.createStatement();
 		stmt.executeUpdate("DELETE FROM `Customer` WHERE `custid`='"+custid+"'");
 		conn.close();
+		
 	}catch(Exception e){
 		e.printStackTrace();
 	}

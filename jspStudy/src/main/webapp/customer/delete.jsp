@@ -5,7 +5,7 @@
 <%	
 	//전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
-	String uid = request.getParameter("custuid");
+	String custid = request.getParameter("custid");
 	
 	// 데이터베이스 작업(Statement)
 	try{

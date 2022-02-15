@@ -1,7 +1,6 @@
 <%@page import="Bean.CustomerBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Bean.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -13,7 +12,6 @@
 	String host = "jdbc:mysql://chhak.or.kr:3306/cesiya3";
 	String user = "cesiya3";
 	String pass = "1234";
-
 
 	List<CustomerBean> customers = new ArrayList<>();
 	

@@ -20,6 +20,7 @@
     		alert("로그인을 먼저 하셔야 합니다.");
     	}else if(success == '200'){
     		alert("회원등록에 성공하였습니다.로그인 하십시오.");
+    	}
     </script>
 </head>
 <body>

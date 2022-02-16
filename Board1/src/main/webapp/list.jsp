@@ -8,10 +8,7 @@
 		response.sendRedirect("/Board1/user/login.jsp?success=102");
 		return; // <-- 프로그램 실행 여기까지
 	}
-
 %>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +23,7 @@
             <article>
                 <p>
                     <%= sessUser.getNick() %>님 반갑습니다.
-                    <a href="/Board1/user/proc/login.jsp" class="logout">[로그아웃]</a>
+                    <a href="/Board1/user/proc/logout.jsp" class="logout">[로그아웃]</a>
                 </p>
                 <table>
                     <tr>
@@ -56,7 +53,7 @@
             </div>
 
             <!-- 글쓰기 버튼 -->
-            <a href="./write.jsp" class="btnWrite">글쓰기</a>
+            <a href="/Board1/write.jsp" class="btnWrite">글쓰기</a>
 
         </section>
     </div>    

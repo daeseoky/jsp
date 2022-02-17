@@ -1,0 +1,80 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Bean.MemberBean"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>list</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
+			$(function(){
+				
+				//직원목록 불러오기 버튼클릭
+				$('button').click(function(){
+				
+					$.get('./proc/getList.jsp', function(data){
+					
+						for(let member of data){
+							$('table').append('<tr/>');
+							$('table tr:last-child').append('<tr>'+member.uid+'</td>');
+							$('table tr:last-child').append('<tr>'+member.name+'</td>');
+							$('table tr:last-child').append('<tr>'+member.hp+'</td>');
+							$('table tr:last-child').append('<tr>'+member.pos+'</td>');
+							$('table tr:last-child').append('<tr>'+member.dep+'</td>');
+							$('table tr:last-child').append('<tr>'+member.rdate.substring(2,10)+'</td>');
+							$('table tr:last-child').append("<tr><a href='"+member.uid+"'>삭제</a></td>");
+						}
+					});
+				});
+			
+			//각 직원 삭제 링크 클릭(동적 이벤트 생성)
+			$(document).on('click', 'table a', function(e){
+				e.preventDefault();
+				
+				let tag = $(this);
+				let uid = tag.attr('href');
+				let url = './proc/delete.jsp?uid='uid;
+				
+				$.get(url, function(data){
+					
+					if(data.result == 1){
+						alert('직원삭제');
+						
+						//해당 삭제 페이지에서 동적삭제 
+						tag.parent().parent().remove();
+						
+					}else{
+						alert('직원삭제못함');
+					}
+				});
+			});
+		});
+		</script>
+		
+	</head>
+	<body>
+		<h3>직원목록</h3>
+		<button>목록 불러오기</button>
+		<a href="./register.jsp">직원등록하기</a>
+		<table border="1">
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>휴대폰</th>
+				<th>직급</th>
+				<th>부서</th>
+				<th>입사일</th>
+				<th>삭제</th>
+			</tr>
+			
+		</table>
+	
+	
+	</body>
+</html>

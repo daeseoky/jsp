@@ -22,13 +22,13 @@
 					
 						for(let member of data){
 							$('table').append('<tr/>');
-							$('table tr:last-child').append('<tr>'+member.uid+'</td>');
-							$('table tr:last-child').append('<tr>'+member.name+'</td>');
-							$('table tr:last-child').append('<tr>'+member.hp+'</td>');
-							$('table tr:last-child').append('<tr>'+member.pos+'</td>');
-							$('table tr:last-child').append('<tr>'+member.dep+'</td>');
-							$('table tr:last-child').append('<tr>'+member.rdate.substring(2,10)+'</td>');
-							$('table tr:last-child').append("<tr><a href='"+member.uid+"'>삭제</a></td>");
+							$('table tr:last-child').append('<td>'+member.uid+'</td>');
+							$('table tr:last-child').append('<td>'+member.name+'</td>');
+							$('table tr:last-child').append('<td>'+member.hp+'</td>');
+							$('table tr:last-child').append('<td>'+member.pos+'</td>');
+							$('table tr:last-child').append('<td>'+member.dep+'</td>');
+							$('table tr:last-child').append('<td>'+member.rdate.substring(2,10)+'</td>');
+							$('table tr:last-child').append("<td><a href='"+member.uid+"'>삭제</a></td>");
 						}
 					});
 				});
@@ -39,7 +39,7 @@
 				
 				let tag = $(this);
 				let uid = tag.attr('href');
-				let url = './proc/delete.jsp?uid='uid;
+				let url = './proc/delete.jsp?uid='+uid;
 				
 				$.get(url, function(data){
 					
@@ -74,7 +74,5 @@
 			</tr>
 			
 		</table>
-	
-	
 	</body>
 </html>

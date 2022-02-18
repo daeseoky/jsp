@@ -47,7 +47,7 @@
 			
 		}else{
 			//일치하는 회원이 없으면
-			response.sendRedirect("/Board1/user/login.jsp?=success=100");
+			response.sendRedirect("/Board1/user/login.jsp?success=100");
 			
 		}
 		conn.close();

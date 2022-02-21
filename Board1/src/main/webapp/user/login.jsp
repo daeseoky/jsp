@@ -11,15 +11,13 @@
     <link rel="stylesheet" href="/Board1/css/style.css"/>
     <script>
     	let success = "<%= success %>";
-    
+    	
     	if(success == '100'){
     		alert("아이디, 비밀번호를 다시 확인하십시요.");    		
     	}else if(success == '101'){
     		alert("정상적으로 로그아웃을 했습니다.");
     	}else if(success == '102'){
     		alert("로그인을 먼저 하셔야 합니다.");
-    	}else if(success == '200'){
-    		alert("회원등록에 성공하였습니다.로그인 하십시오.");
     	}
     </script>
 </head>
@@ -27,7 +25,7 @@
     <div id="wrapper">
         <section id="user" class="login">
             <form action="/Board1/user/proc/login.jsp" method="post">
-                <table>
+                <table border="0">
                     <tr>
                         <td><img src="/Board1/img/login_ico_id.png" alt="아이디"/></td>
                         <td><input type="text" name="uid" placeholder="아이디를 입력" /></td>

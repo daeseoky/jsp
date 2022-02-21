@@ -2,10 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	UserBean sessUser = (UserBean)session.getAttribute("sessUser");
-
 	if(sessUser == null){
 		response.sendRedirect("/Board1/user/login.jsp?success=102");
-		return; // <-- 프로그램 실행 여기까지
+		return;
 	}
 %>
 <!DOCTYPE html>
@@ -21,7 +20,7 @@
             <h3>글쓰기</h3>
             <article>
                 <form action="/Board1/proc/write.jsp" method="post" enctype="multipart/form-data">
-                	<input type="hidden" name="uid" value="<%= sessUser.getUid() %>"/>
+                	<input type="hidden" name="uid" value="<%= sessUser.getUid() %>" />
                     <table>
                         <tr>
                             <td>제목</td>
@@ -39,8 +38,8 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="/Board1/list.html" class="btnCancel">취소</a>
-                        <input type="submit"  class="btnWrite" value="작성완료">
+                        <a href="/Board1/list.jsp" class="btnCancel">취소</a>
+                        <input type="submit"  class="btnWrite" value="작성완료"/>
                     </div>
                 </form>
             </article>

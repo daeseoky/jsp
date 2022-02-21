@@ -16,7 +16,6 @@
 <%
 	// 전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
-
 	// Multipart 전송 데이터 수신
 	String path = request.getServletContext().getRealPath("/file"); // 업로드 파일이 저장될 시스템 경로
 	int maxsize = 1024 * 1024 * 10; // 최대 파일 허용량 10MB
@@ -28,7 +27,7 @@
 	String uid     = mr.getParameter("uid");	
 	String regip   = request.getRemoteAddr();
 	
-	//작성한 글 입력하기
+	// 작성한 글 입력하기
 	ArticleBean article = new ArticleBean();
 	article.setTitle(title);
 	article.setContent(content);
@@ -37,12 +36,12 @@
 	article.setRegip(regip);
 	
 	int id = ArticleDao.getInstance().insertArticle(article);
-
-	//파일첨부 했으면 파일처리 작업
+	
+	// 파일첨부 했으면 파일처리 작업
 	if(fname != null){
-		//파일명 수정
+		// 파일명 수정
 		int i = fname.lastIndexOf(".");
-		String ext =fname.substring(i);
+		String ext = fname.substring(i);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss_");
 		String now = sdf.format(new Date());
@@ -52,13 +51,12 @@
 		File newFile = new File(path+"/"+newName);
 		
 		oriFile.renameTo(newFile);
-	
-	
-		//파일테이블 Insert
+		
+		// 파일테이블 Insert
 		ArticleDao.getInstance().insertFile(id, fname, newName);
-	}  //파일처리 작업 끝
+	} // 파일처리 작업 끝
 	
-	//리다이렉트
+	
+	// 리다이렉트
 	response.sendRedirect("/Board1/list.jsp");
-
 %>

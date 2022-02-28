@@ -19,9 +19,11 @@
 		return; // <-- 프로그램 실행 여기까지
 	}
 	
+	
 	// 전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
 	String pg = request.getParameter("pg");
+	
 	
 	// 페이지 번호 작업
 	int total = ArticleDao.getInstance().selectCountId();

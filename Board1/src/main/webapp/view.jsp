@@ -120,12 +120,13 @@
                     <td>내용</td>
                     <td>
                         <textarea name="content" readonly><%= article.getContent() %></textarea>
+                        
                     </td>
                 </tr>
             </table>
             <div>
-                <a href="#" class="btnDelete">삭제</a>
-                <a href="./modify.html" class="btnModify">수정</a>
+                <a href="/Board1/delete.jsp?id=<%= article.getId() %> class="btnDelete">삭제</a>
+                <a href="/Board1/modify.jsp?id=<%= article.getId() %>" class="btnModify">수정</a>
                 <a href="/Board1/list.jsp" class="btnList">목록</a>
             </div>  
             

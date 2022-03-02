@@ -18,7 +18,7 @@
         </aside>
         <article>
             <nav>
-                <img src="Farmstory1/img/sub_nav_tit_cate3_<%= type %>.png" alt="농작물이야기"/>
+                <img src="/Farmstory1/img/sub_nav_tit_cate3_<%= type %>.png" alt="농작물이야기"/>
                 <p>
                     HOME > 농작물이야기 > 
                     <% if(type.equals("story")){ %>

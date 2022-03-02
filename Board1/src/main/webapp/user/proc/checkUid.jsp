@@ -6,7 +6,7 @@
 	String uid = request.getParameter("uid");
 	
 	//아이디 여부확인
-	int count = UserDao.getInstance().selectUserCount(uid, 1);
+	int count = UserDao.getInstance().selectUserCount("uid", 1);
 	
 	//결과값 리턴
 	JsonObject json =new JsonObject();

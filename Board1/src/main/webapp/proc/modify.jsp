@@ -1,5 +1,4 @@
 <%@page import="kr.co.board1.bean.UserBean"%>
-<%@page import="kr.co.board1.bean.ArticleBean"%>
 <%@page import="kr.co.board1.dao.ArticleDao"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.io.File"%>

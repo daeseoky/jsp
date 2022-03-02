@@ -1,6 +1,6 @@
+<%@page import="kr.co.board1.bean.UserBean"%>
 <%@page import="kr.co.board1.db.Sql"%>
 <%@page import="kr.co.board1.db.DBConfig"%>
-<%@page import="kr.co.board1.bean.UserBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>

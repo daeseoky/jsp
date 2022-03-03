@@ -1,13 +1,8 @@
 <%@page import="kr.co.Farmstory1.bean.UserBean"%>
 <%@page import="kr.co.Farmstory1.dao.UserDao"%>
-<%@page import="kr.co.Farmstory1.db.Sql"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="kr.co.Farmstory1.db.DBConfig"%>
-<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%
-	// 전송 데이터 수신
+	//전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
 	String uid   = request.getParameter("uid");
 	String pass1 = request.getParameter("pass1");
@@ -36,4 +31,4 @@
 	
 	// 로그인 페이지로 이동
 	response.sendRedirect("/Farmstory1/user/login.jsp?success=200");
-%> 
+%>

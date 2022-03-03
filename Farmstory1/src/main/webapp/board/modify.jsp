@@ -35,9 +35,9 @@
     </article>
 </section>
 
+
 <!-- 내용 끝 -->
 </article>
 </section>
 </div>
-
 <%@ include file="../_footer.jsp" %>

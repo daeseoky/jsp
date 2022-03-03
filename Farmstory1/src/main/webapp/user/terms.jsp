@@ -1,15 +1,14 @@
 <%@page import="kr.co.Farmstory1.bean.TermsBean"%>
 <%@page import="kr.co.Farmstory1.dao.UserDao"%>
-<%@page import="kr.co.Farmstory1.db.DBConfig"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="kr.co.Farmstory1.db.DBConfig"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	TermsBean tb = UserDao.getInstance().selectTerms();
-
 %>
 <%@ include file="../_header.jsp" %>
-<script src="/Farmstory1/js/terms.js"></script>
 <section id="user" class="terms">
+<script src="/Farmstory1/js/terms.js"></script>
     <table>
         <caption>사이트 이용약관</caption>
         <tr>
@@ -37,4 +36,5 @@
         <a href="/Farmstory1/user/register.jsp">다음</a>
     </div>
 </section>
+
 <%@ include file="../_footer.jsp" %>

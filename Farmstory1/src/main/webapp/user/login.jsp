@@ -2,21 +2,20 @@
 <%@ include file="../_header.jsp" %>
 <%
 	request.setCharacterEncoding("utf-8");
-	String cate = request.getParameter("cate");
-	String type = request.getParameter("type");
+	String cate 	= request.getParameter("cate");
+	String type 	= request.getParameter("type");		
 %>
-
 <section id="user" class="login">
     <form action="/Farmstory1/user/proc/login.jsp" method="post">
     	<input type="hidden" name="cate" value="<%= cate %>"/>
     	<input type="hidden" name="type" value="<%= type %>"/>
         <table border="0">
             <tr>
-                <td><img src="/Farmstory1/img/login_ico_id.png" alt="아이디"/></td>
+                <td><img src="../img/login_ico_id.png" alt="아이디"/></td>
                 <td><input type="text" name="uid" placeholder="아이디를 입력" /></td>
             </tr>
             <tr>
-                <td><img src="/Farmstory1/img/login_ico_pw.png" alt="비밀번호"/></td>
+                <td><img src="../img/login_ico_pw.png" alt="비밀번호"/></td>
                 <td><input type="password" name="pass" placeholder="비밀번호 입력" /></td>
             </tr>
         </table>
@@ -29,5 +28,7 @@
             아직 회원이 아니시면 회원으로 가입하세요.
         </p>
         <a href="/Farmstory1/user/terms.jsp">회원가입</a>
-</section>  
-<%@ include file="../_footer.jsp" %>
+    </div>
+</section>
+        
+<%@ include file="../_footer.jsp" %>   

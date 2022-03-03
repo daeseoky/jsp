@@ -4,10 +4,10 @@
 	String type = request.getParameter("type");
 %>
 <div id="sub">
-    <div><img src="/Farmstory1/img/sub_top_tit3.png" alt="CROP TALK"></div>
+    <div><img src="../img/sub_top_tit3.png" alt="CROP TALK"></div>
     <section class="cate3">
         <aside>
-            <img src="/Farmstory1/img/sub_aside_cate3_tit.png" alt="농작물이야기"/>
+            <img src="../img/sub_aside_cate3_tit.png" alt="농작물이야기"/>
 
             <ul class="lnb">
                 <li class="<%= type.equals("story") ?"on":"off"%>"><a href="/Farmstory1/board/list.jsp?cate=croptalk&type=story">농작물이야기</a></li>
@@ -18,7 +18,7 @@
         </aside>
         <article>
             <nav>
-                <img src="/Farmstory1/img/sub_nav_tit_cate3_<%= type %>.png" alt="농작물이야기"/>
+                <img src="../img/sub_nav_tit_cate3_<%= type %>.png" alt="농작물이야기"/>
                 <p>
                     HOME > 농작물이야기 > 
                     <% if(type.equals("story")){ %>

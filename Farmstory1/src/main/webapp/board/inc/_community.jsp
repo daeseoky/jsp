@@ -4,10 +4,10 @@
 	String type = request.getParameter("type");
 %>
 <div id="sub">
-    <div><img src="/Farmstory1/img/sub_top_tit5.png" alt="COMMUNITY"></div>
+    <div><img src="../img/sub_top_tit5.png" alt="COMMUNITY"></div>
     <section class="cate5">
         <aside>
-            <img src="/Farmstory1/img/sub_aside_cate5_tit.png" alt="커뮤니티"/>
+            <img src="../img/sub_aside_cate5_tit.png" alt="커뮤니티"/>
 
             <ul class="lnb">
                 <li class="<%= type.equals("notice") ?"on":"off"%>"><a href="/Farmstory1/board/list.jsp?cate=community&type=notice">공지사항</a></li>
@@ -19,7 +19,7 @@
         </aside>
         <article>
             <nav>
-                <img src="/Farmstory1/img/sub_nav_tit_cate5_<%= type %>.png" alt="공지사항"/>
+                <img src="../img/sub_nav_tit_cate5_<%= type %>.png" alt="공지사항"/>
                 <p>
                     HOME > 커뮤니티 > 
                     <% if(type.equals("notice")){ %>

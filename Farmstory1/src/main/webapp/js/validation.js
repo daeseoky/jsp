@@ -26,7 +26,7 @@ $(function(){
 		let jsonData = {"uid": uid};
 		
 		$.ajax({
-			url: '/Board1/user/proc/checkUid.jsp',
+			url: '/Farmstory1/user/proc/checkUid.jsp',
 			type: 'get',
 			data: jsonData,
 			dataType: 'json',
@@ -93,7 +93,7 @@ $(function(){
 		let nick = $(this).val();
 		let jsonData = {"nick":nick};
 		
-		$.get('/Board1/user/proc/checkNick.jsp', jsonData, function(data){
+		$.get('/Farmstory1/user/proc/checkNick.jsp', jsonData, function(data){
 			
 			if(data.result > 0){
 				$('.resultNick').css('color', 'red').text('이미 사용중인 별명입니다');
@@ -120,7 +120,7 @@ $(function(){
 		let email = $(this).val();
 		let jsonData = {"email":email};
 		
-		$.get('/Board1/user/proc/checkEmail.jsp', jsonData, function(data){
+		$.get('/Farmstory1/user/proc/checkEmail.jsp', jsonData, function(data){
 			
 			if(data.result > 0){
 				$('.resultEmail').css('color', 'red').text('이미 사용중인 이메일입니다');
@@ -140,7 +140,7 @@ $(function(){
 		let hp = $(this).val();
 		let jsonData = {"hp":hp};
 		
-		$.get('/Board1/user/proc/checkHp.jsp', jsonData, function(data){
+		$.get('/Farmstory1/user/proc/checkHp.jsp', jsonData, function(data){
 			
 			if(data.result > 0){
 				$('.resultHp').css('color', 'red').text('이미 사용중인 휴대폰 번호 입니다');
@@ -184,7 +184,7 @@ $(function(){
 			return false;
 		}
 		if(!isEmailOk){
-			alert('이베일을 다시 홧인하시기 바랍니다.');
+			alert('이메일을 다시 확인하시기 바랍니다.');
 			return false;
 		}
 		if(!isHpOk){

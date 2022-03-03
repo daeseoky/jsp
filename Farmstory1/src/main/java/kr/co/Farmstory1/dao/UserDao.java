@@ -11,8 +11,7 @@ import kr.co.Farmstory1.db.DBConfig;
 import kr.co.Farmstory1.db.Sql;
 
 public class UserDao {
-	
-	// 싱글톤 객체
+	// 싱글통 객체
 	private static UserDao instance = new UserDao();
 	
 	public static UserDao getInstance() {
@@ -21,7 +20,7 @@ public class UserDao {
 	
 	private UserDao() {}
 	
-	//기본 CRUD
+	// 기본 CRUD
 	public void insertUser(UserBean user) {
 		
 		try{
@@ -43,33 +42,66 @@ public class UserDao {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}
-	public TermsBean selectTerms() {
 		
-		TermsBean tb = new TermsBean();
+	}
+	
+public int selectUserCount(String info, int what) {
+		
+		int count = 0;
+		
 		try {
-			Connection conn =DBConfig.getInstance().getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(Sql.SELECT_TERMS);
+			Connection conn = DBConfig.getInstance().getConnection();
+			PreparedStatement psmt = null;
+			if(what == 1) {
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_UID);
+			}else if(what == 2){
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_NICK);
+			}else if(what == 3){	
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_EMAIL);
+			}else if(what == 4){	
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_HP);
+			}	
+			psmt.setString(1, info);
 			
+			ResultSet rs = psmt.executeQuery();
 			if(rs.next()) {
-				tb.setTerms(rs.getString(1));
-				tb.setPrivacy(rs.getString(2));
+				count =rs.getInt(1);
 			}
-			conn.close();
+				conn.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return tb;
+		return count;
 		
+	}
+	
+	
+	public TermsBean selectTerms() {
+		
+		TermsBean tb = new TermsBean();
+		try {
+			Connection conn = DBConfig.getInstance().getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(Sql.SELECT_TERMS);
+			
+			if(rs.next()){
+				tb.setTerms(rs.getString(1));
+				tb.setPrivacy(rs.getString(2));
+			}
+			conn.close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return tb;
 	}
 	public UserBean selectUser(String uid, String pass) {
 		
-		UserBean ub = null;
+		UserBean ub = null; // 선언
 		
-		// 데이터베이스 처리
 		try{
 			Connection conn = DBConfig.getInstance().getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_USER);
@@ -80,7 +112,7 @@ public class UserDao {
 			
 			if(rs.next()){
 				// 일치하는 회원이 있으면
-				ub = new UserBean();
+				ub = new UserBean(); // 생성
 				ub.setUid(rs.getString(1));
 				ub.setPass(rs.getString(2));
 				ub.setName(rs.getString(3));
@@ -95,15 +127,14 @@ public class UserDao {
 				ub.setRdate(rs.getString(12));
 			}
 			conn.close();
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
 		return ub;
 	}
+	
 	public void selectUsers() {}
 	public void updateUser() {}
 	public void deleteUser() {}
-
 }

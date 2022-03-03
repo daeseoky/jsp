@@ -49,6 +49,7 @@ public class ArticleBean {
 	public void setNo(int no) {
 		this.no = no;
 	}
+	
 	public int getParent() {
 		return parent;
 	}
@@ -65,12 +66,14 @@ public class ArticleBean {
 	public void setComment(int comment) {
 		this.comment = comment;
 	}
+	
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
+	
 	public String getTitle() {
 		return title;
 	}

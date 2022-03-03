@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/Farmstory1/board/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-	<script>
+    <script>
     	let success = "<%= success %>";
     	
     	if(success == '100'){
@@ -25,6 +25,8 @@
     		alert("정상적으로 로그아웃을 했습니다.");
     	}else if(success == '102'){
     		alert("로그인을 먼저 하셔야 합니다.");
+    	}else if(success == '200'){
+    		alert("회원가입을 성공하였습니다. 생성된 아이디로 로그인 하세요.");
     	}
     </script>
 </head>

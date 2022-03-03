@@ -1,9 +1,15 @@
+<%@page import="kr.co.Farmstory1.bean.ArticleBean"%>
+<%@page import="kr.co.Farmstory1.dao.ArticleDao"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
 <%
 	request.setCharacterEncoding("utf-8");
 	String cate = request.getParameter("cate");
 	String type = request.getParameter("type");
+	String no = request.getParameter("no");
+	
+	ArticleDao dao = ArticleDao.getInstance();
+	ArticleBean article = dao.selectArticle(no);
 	
 	pageContext.include("./inc/_"+cate+".jsp");
 %>
@@ -12,7 +18,7 @@
     <table>
         <tr>
             <td>제목</td>
-            <td><input type="text" name="title" value="제목입니다." readonly/></td>
+            <td><input type="text" name="title" value="<%= article.getTitle() %>" readonly/></td>
         </tr>
         <tr>
             <td>첨부파일</td>
@@ -24,7 +30,7 @@
         <tr>
             <td>내용</td>
             <td>
-                <textarea name="content" readonly>내용 샘플입니다.</textarea>
+                <textarea name="content" readonly><%= article.getContent() %></textarea>
             </td>
         </tr>
     </table>

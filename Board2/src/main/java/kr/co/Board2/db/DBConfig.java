@@ -15,14 +15,19 @@ public class DBConfig {
 	private DBConfig() {}
 	
 //	개발용
-	private final String HOST = "jdbc:mysql://54.180.150.241:3306/mydb";
-	private final String USER = "mydb";
-	private final String PASS = "1234";
+//	private final String HOST = "jdbc:mysql://54.180.150.241:3306/mydb";
+//	private final String USER = "mydb";
+//	private final String PASS = "1234";
 	
-////	배포용
+//	배포용
 //	private final String HOST = "jdbc:mysql://localhost:3306/mydb";
 //	private final String USER = "mydb";
 //	private final String PASS = "1234";
+	
+//	test용
+	private final String HOST = "jdbc:mysql://chhak.or.kr:3306/cesiya3";
+	private final String USER = "cesiya3";
+	private final String PASS = "1234";
 	
 	public Connection getConnection() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");

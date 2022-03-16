@@ -17,7 +17,14 @@
     		// 아이디 중복체크
     		$('input[name=uid]').focusout(function(){
     			let uid = $(this).val();
-    			let jsonData = {"uid": uid};				
+    			let jsonData = {"uid": uid};
+    			
+    			/*
+    			$.get('/Board2/user/checkUid.do', jsonData, function(data){
+    				alert(data.result);
+    			}, 'json');
+    			*/
+    			
     			$.ajax({
     				url: '/Board2/user/checkUid.do',
     				type: 'get',
@@ -36,6 +43,7 @@
     					}
     				}
     			});
+    			
     		});
     	});
     </script>

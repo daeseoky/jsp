@@ -16,11 +16,11 @@ public class CheckUidService implements CommonService {
 		String uid = req.getParameter("uid");
 		int count = UserDao.getInstance().selectCountUid(uid);
 
-		// Json 
+		// Json 데이터 생성
 		JsonObject json = new JsonObject();
 		json.addProperty("result", count);
 		
-		// Json 
+		// Json 출력
 		return "json:"+json.toString();
 	}
 

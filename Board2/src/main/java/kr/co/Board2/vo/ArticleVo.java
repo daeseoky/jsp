@@ -14,7 +14,16 @@ public class ArticleVo {
 	private String regip;
 	private String rdate;
 	
+	// 추가필드
 	private String fname;
+	private FileVo fv;
+	
+	public FileVo getFv() {
+		return fv;
+	}
+	public void setFv(FileVo fv) {
+		this.fv = fv;
+	}
 	
 	public String getFname() {
 		return fname;

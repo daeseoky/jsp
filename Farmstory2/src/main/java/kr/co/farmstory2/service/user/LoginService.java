@@ -32,7 +32,7 @@ public class LoginService implements CommonService {
 				sess.setAttribute("sessUser", user);
 				
 		
-				return "/index.jsp";
+				return "redirect:/Farmstory2/";
 			}
 		}
 			

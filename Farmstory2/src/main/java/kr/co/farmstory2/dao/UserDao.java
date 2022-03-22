@@ -11,7 +11,8 @@ import kr.co.farmstory2.vo.TermsVo;
 import kr.co.farmstory2.vo.UserVo;
 
 public class UserDao {
-
+	
+	// ΩÃ±€≈‰ ∞¥√º
 	private static UserDao instance = new UserDao();
 	
 	public static UserDao getInstance() {
@@ -45,21 +46,22 @@ public class UserDao {
 	
 	public TermsVo selectTerms() {
 		
-		TermsVo vo = new TermsVo();
+		TermsVo tv = new TermsVo();
 		
 		try {
 			Connection conn= DBConfig.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(Sql.SELECT_TERMS);
+			
 			if(rs.next()) {
-				vo.setTerms(rs.getString(1));
-				vo.setPrivacy(rs.getString(2));
+				tv.setTerms(rs.getString(1));
+				tv.setPrivacy(rs.getString(2));
 			}
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return vo;
+		return tv;
 	}
 	
 	public int selectCountUid(String uid) {
@@ -70,6 +72,69 @@ public class UserDao {
 			Connection conn = DBConfig.getInstance().getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_UID);
 			psmt.setString(1, uid);
+			
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			conn.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int selectCountNick(String nick) {
+		
+		int count = 0;
+		
+		try {
+			Connection conn = DBConfig.getInstance().getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_NICK);
+			psmt.setString(1, nick);
+			
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			conn.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int selectCountEmail(String email) {
+		
+		int count = 0;
+		
+		try {
+			Connection conn = DBConfig.getInstance().getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_EMAIL);
+			psmt.setString(1, email);
+			
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			conn.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int selectCountHp(String hp) {
+		
+		int count = 0;
+		
+		try {
+			Connection conn = DBConfig.getInstance().getConnection();
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_HP);
+			psmt.setString(1, hp);
 			
 			ResultSet rs = psmt.executeQuery();
 			

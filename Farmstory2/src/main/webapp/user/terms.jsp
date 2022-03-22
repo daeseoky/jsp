@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
 <section id="user" class="terms">
+<script src="/Farmstory2/js/terms.js"></script>
     <table>
         <caption>사이트 이용약관</caption>
         <tr>

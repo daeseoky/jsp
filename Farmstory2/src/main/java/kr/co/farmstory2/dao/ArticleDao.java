@@ -22,22 +22,23 @@ public class ArticleDao {
 	
 	// ±âº» CRUD
 	public int insertArticle(ArticleVo vo) {
-		
+
 		try {
 			Connection conn = DBConfig.getInstance().getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
-			psmt.setString(1, vo.getTitle());
-			psmt.setString(2, vo.getContent());
-			psmt.setInt(3, vo.getFile());
-			psmt.setString(4, vo.getUid());
-			psmt.setString(5, vo.getRegip());
+			psmt.setString(1, vo.getType());
+			psmt.setString(2, vo.getTitle());
+			psmt.setString(3, vo.getContent());
+			psmt.setInt(4, vo.getFile());
+			psmt.setString(5, vo.getUid());
+			psmt.setString(6, vo.getRegip());
 			psmt.executeUpdate();
-			
+
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return selectMaxNo();
 	}
 	
@@ -95,21 +96,24 @@ public class ArticleDao {
 		return no;
 	}
 	
-	public int selectCountTotal() {
+	public int selectCountTotal(String type) {
 		int total = 0;
 		
 		try {
 			Connection conn = DBConfig.getInstance().getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(Sql.SELECT_COUNT_TOTAL);
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_COUNT_TOTAL);
+			psmt.setString(1, type);
+
+			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()) {
 				total = rs.getInt(1);
 			}
 			
 			rs.close();
-			stmt.close();
+			psmt.close();
 			conn.close();
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -160,14 +164,15 @@ public class ArticleDao {
 		return article;
 	}
 	
-	public List<ArticleVo> selectArticles(int start) {
+	public List<ArticleVo> selectArticles(String type, int start) {
 		
 		List<ArticleVo> articles = new ArrayList<>();
 		
 		try {
 			Connection conn = DBConfig.getInstance().getConnection();
 			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_ARTICLES);
-			psmt.setInt(1, start);
+			psmt.setString(1, type);
+			psmt.setInt(2, start);
 			
 			ResultSet rs = psmt.executeQuery();
 			
@@ -176,7 +181,7 @@ public class ArticleDao {
 				article.setNo(rs.getInt(1));
 				article.setParent(rs.getInt(2));
 				article.setComment(rs.getInt(3));
-				article.setCate(rs.getString(4));
+				article.setType(rs.getString(4));
 				article.setTitle(rs.getString(5));
 				article.setContent(rs.getString(6));
 				article.setFile(rs.getInt(7));

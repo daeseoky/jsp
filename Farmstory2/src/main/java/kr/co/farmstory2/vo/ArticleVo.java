@@ -17,7 +17,14 @@ public class ArticleVo {
 	// 추가필드
 	private String fname;
 	private FileVo fv;
+	private String type;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public FileVo getFv() {
 		return fv;
 	}

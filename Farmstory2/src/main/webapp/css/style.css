@@ -124,6 +124,14 @@ main > .slider {
     overflow: hidden;
 }
 
+main > .slider ul {
+	position: relative;
+}
+
+main > .slider ul > li {
+	position: absolute;
+}
+
 main > .slider > img {
     position: absolute;
     left: 40px;
@@ -406,8 +414,9 @@ main > .info > div > .account {
 #sub > .cate3 .lnb > li:nth-child(2).on > a {background-image: url('../img/sub_cate3_lnb2_ov.png');}
 #sub > .cate3 .lnb > li:nth-child(3).on > a {background-image: url('../img/sub_cate3_lnb3_ov.png');}
 
-
 /* 이벤트 */
+
+
 /* 커뮤니티 */
 
 
